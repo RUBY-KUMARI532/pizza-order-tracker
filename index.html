@@ -1,1 +1,60 @@
-# pizza-order-tracker
+<!DOCTYPE html>
+<html>
+    <body style="text-align:center; margin-top:100px;">
+        <h1> Pizza order Tracker</h1>
+        <input type="text" id="orderNumber" placeholder="Enter Number">
+        <button onclick="pizzaOrder()">Pizza Order</button>
+        <p id="message"></p>
+        <img id="prep" src="prep.jpg" width="150px" hight="150px" style="display:none">
+        <img id="oven" src="oven.jpg" width="150px" hight="150px" style="display:none">
+        <img id="delivery" src="delivery.jpg" width="150px" hight="150px" style="display:none">
+        <img id="warning" src="warning.png" width="150px" hight="150px" style="display:none">
+
+        <script>
+            function pizzaOrder(){
+                let number=document.getElementById("orderNumber").value;
+                if (number>=100) {
+                    document.body.style.backgroundColor="green";
+                    document.getElementById("message").innerText="Order Complete! Out for delivery.";
+                    document.getElementById("delivery").style.display="block";
+                    document.getElementById("oven").style.display="none";
+                    document.getElementById("prep").style.display="none";
+                    document.getElementById("warning").style.display="none";
+
+                }
+                else if (number>=50) {
+                    document.body.style.backgroundColor="orange";
+                    document.getElementById("message").innerText="Your Pizza is in the Oven!";
+                    document.getElementById("delivery").style.display="none";
+                    document.getElementById("oven").style.display="block";
+                    document.getElementById("prep").style.display="none";
+                    document.getElementById("warning").style.display="none";
+
+
+                }
+                else if (number>=1){
+                    document.body.style.backgroundColor="blue";
+                    document.getElementById("message").innerText="Order Received! Preparing dough.";
+                    document.getElementById("delivery").style.display="none";
+                    document.getElementById("oven").style.display="none";
+                    document.getElementById("prep").style.display="block";
+                    document.getElementById("warning").style.display="none";
+
+
+                }
+                else {
+                    document.body.style.backgroundColor="red";
+                    document.getElementById("message").innerText="Invalid Order ID! Please Check your receipt.";
+                    document.getElementById("delivery").style.display="none";
+                    document.getElementById("oven").style.display="none";
+                    document.getElementById("prep").style.display="none";
+                    document.getElementById("warning").style.display="block";
+
+
+
+
+                }
+            }
+        </script>
+    </body>
+</html>
